@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Filmes } from "./styles/FPStyle";
+import { Filmes, Titulo } from "./styles/FPStyle";
 
 function Search({input}) { 
     useEffect(()=>{
@@ -23,9 +23,12 @@ function Search({input}) {
     }
   return (
     <>
+    {filmesFiltrados.length > 0 ? 
+        <Titulo>Resultados de sua pesquisa &quot;{input}&quot;</Titulo> 
+        :  <Titulo style={{textAlign:"center", margin: 0, padding: "100px 0px"}} >Nada Foi encontrado</Titulo>}
     <Filmes>
-        {filmesFiltrados.map((item, id )=> (
-                    <article key={id}>
+        {filmesFiltrados.map((item, index )=> (
+                    <article key={index}>
                         <img src={item.image} alt={item.title} />
                         <h3>Name: {item.title}</h3>
                     </article>

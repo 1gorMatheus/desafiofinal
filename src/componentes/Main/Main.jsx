@@ -1,12 +1,12 @@
 import FilmesPopular from "./FilmesPopular";
 
-import { Filmes } from "./styles/MainStyled";
+import { FilmesMain } from "./styles/MainStyled";
 
 function Main() {
   return (
-    <Filmes>
+    <FilmesMain>
       <FilmesPopular/>
-    </Filmes>
+    </FilmesMain>
   );
 }
 

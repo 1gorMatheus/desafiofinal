@@ -1,6 +1,7 @@
 
 import Header from './componentes/Header/Header'
-import Main from './componentes/Main/Main'
+// import Main from './componentes/Main/Main'
+import Routes from './componentes/routes/Routes'
 
 
 function App() {
@@ -8,7 +9,7 @@ function App() {
   return (
     <>
       <Header/>
-      <Main/>
+      <Routes/>
     </>
   )
 }

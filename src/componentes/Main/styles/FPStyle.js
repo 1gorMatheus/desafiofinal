@@ -22,3 +22,7 @@ export const Filmes = styled.section`
     }
 
 `
+export const Titulo = styled.h2`
+color:#ffffff;
+margin:10vh 0 5vh 7.8%;
+`

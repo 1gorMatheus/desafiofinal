@@ -112,7 +112,7 @@ font-weight: 600;
  box-shadow: 2px 6px 11px #0000005C;
  transition: ease-in-out 0.2s;
  &:hover {
-    transform: scale(1.2);
+    transform: scale(1.09);
     background-color:#aa2e00;
   }
 `
@@ -130,7 +130,7 @@ font-weight: 600;
  box-shadow: 2px 6px 11px #0000005C;
  transition: ease-in-out 0.2s;
  &:hover {
-    transform: scale(1.2);
+    transform: scale(1.09);
     background-color:#5a5a5a;
   }
 `

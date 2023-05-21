@@ -1,6 +1,6 @@
 import styled from "styled-components"
 
-export const Filmes = styled.main`
+export const FilmesMain = styled.main`
 
     background-color: #000000;
 

@@ -1,6 +1,7 @@
 import { BsSearch } from 'react-icons/bs';
 
 import { MenuGenero, Genero } from "./styles/NavGeneroStyle";
+import { Link } from 'react-router-dom';
 // import { useState } from 'react';
 
 function NavGenero({setMode, mode, setInput}) {
@@ -8,14 +9,14 @@ function NavGenero({setMode, mode, setInput}) {
     <>
         <MenuGenero>
             <Genero>
-                <li><a href="">Popular</a></li>
-                <li><a href="">Drama</a></li>
-                <li><a href="">Ação</a></li>
-                <li><a href="">Aventura</a></li>
-                <li><a href="">Comédia</a></li>
-                <li><a href="">Crime</a></li>
-                <li><a href="">Fantasia</a></li>
-                <li><a href="">Família</a></li>
+                <li><Link to="/" >Popular</Link></li>
+                <li><Link to="/Drama">Drama</Link></li>
+                <li><Link to="/Acao">Ação</Link></li>
+                <li><Link to="/Aventura"   >Aventura</Link></li>
+                <li><Link to="/Comedia" >Comédia</Link></li>
+                <li><Link to="/Crime" >Crime</Link></li>
+                <li><Link to="/Fantasia" >Fantasia</Link></li>
+                <li><Link to="/Familia" >Família</Link></li>
                 <li>
                   <input className={mode === false ? 'hidden' : ''}
                   onChange={(e) => {setInput(e.target.value)}}

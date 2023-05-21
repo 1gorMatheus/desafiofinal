@@ -2,8 +2,9 @@ import axios from "axios";
 import NavGenero from "./NavGenero";
 import Carrousel from "./Carrousel";
 import { useEffect, useState } from "react";
-import { Filmes } from "./styles/FPStyle";
+import { Filmes, Titulo } from "./styles/FPStyle";
 import Search from "./Search";
+// import GenreMovie from "./GenreMovie";
 
 function FilmesPopular() {
     const [mode, setMode] = useState(false) ;
@@ -49,6 +50,7 @@ function FilmesPopular() {
        {input.length === 0? ( 
         <>
           <Carrousel/>
+          <Titulo>Em Alta</Titulo>
           <Filmes>
             {filmesPopular && filmesPopular.map((item, index)=>(
                 <article key={index} >
