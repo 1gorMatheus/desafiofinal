@@ -1,7 +1,8 @@
 import Carousel from "react-elastic-carousel";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { ContainerCarrousel, Filmes } from "./styles/CarrouselStyle";
+import { ContainerCarrousel} from "./styles/CarrouselStyle";
+import FilmItem from "./FilmItem";
 
 
 function Carrousel() {
@@ -33,7 +34,8 @@ function Carrousel() {
             const Api = response.data.results.map((item)=>{
                 return{
                     ...item,
-                    image: `https://image.tmdb.org/t/p/w500${item.poster_path}`
+                    image: `https://image.tmdb.org/t/p/w500${item.poster_path}`,
+                    ano: item.release_date.split('').splice(0,4).join(''),
                 }
             })
             setLancamentos(Api);
@@ -57,10 +59,9 @@ function Carrousel() {
         style={{width: '98%', margin: '0 auto'}}
         >
         {lancamentos && lancamentos.map((item, index)=>(
-        <Filmes key={index} >
-            <img src={item.image} alt={item.original_title} style={{width: '85%'}} />
-            <h3>{item.title}</h3>
-        </Filmes>
+        
+            <FilmItem item={item} key={index} />
+        
         ))}
         </Carousel>
     </ContainerCarrousel>
