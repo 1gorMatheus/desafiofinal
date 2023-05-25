@@ -1,11 +1,12 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { Filmes } from "./styles/FPStyle";
+import { Filmes, PaginationContainer } from "./styles/FPStyle";
 import { FilmesMain } from "./styles/MainStyled";
 import NavGenero from "./NavGenero";
 import SearchGenreMovie from "./SearchGenreMovie";
 import FilmItem from "./FilmItem";
+import ReactPaginate from "react-paginate";
 
 
 function GenreMovie() {
@@ -66,7 +67,7 @@ function GenreMovie() {
                    return{
                        ...item,
                        image: `https://image.tmdb.org/t/p/w500${item.poster_path}`,
-                       ano: item.release_date.split('').splice(0,4).join(''),
+                       ano: item.release_date?.split('').splice(0, 4).join(''),
                    }
                })
              setFilmesGeneros(Api);
@@ -96,12 +97,28 @@ function GenreMovie() {
             })}
             
         </Filmes>
-        <button
-          onClick={() => setPages(pages >= 1 && pages < 42 ? pages + 1 : 42)}
-        >
-          <h1>{parseInt(pages)}</h1> Próximo
-        </button>
-        </>
+        <PaginationContainer>
+
+          <ReactPaginate
+          previousLabel="Anterior"
+          nextLabel="Último"
+          breakLabel="..."
+          pageCount={500}
+          marginPagesDisplayed={1}
+          pageRangeDisplayed={2}
+          onPageChange={(e)=>{ setPages(parseInt(e.selected + 1)) }}
+          containerClassName="pagination"
+        pageClassName="page-item"
+        pageLinkClassName="page-link"
+        previousClassName="page-item"
+        nextClassName="page-item"
+        previousLinkClassName="page-link"
+        nextLinkClassName="page-link"
+        activeClassName="active"
+        breakClassName='ellipsis'
+          />
+       </PaginationContainer>
+        </> 
         ): <SearchGenreMovie input={input} id={query}/> }
     </FilmesMain>
         

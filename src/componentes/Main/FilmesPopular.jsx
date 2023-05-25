@@ -61,9 +61,7 @@ function FilmesPopular() {
                 <FilmItem item={item} key={index}  />
             ))}
         </Filmes>
-        </>
-       ): (<Search input={input} />)}
-       <PaginationContainer>
+        <PaginationContainer>
 
           <ReactPaginate
           previousLabel="Anterior"
@@ -72,7 +70,7 @@ function FilmesPopular() {
           pageCount={500}
           marginPagesDisplayed={1}
           pageRangeDisplayed={2}
-          onPageChange={(e)=>{console.log(parseInt(e.selected + 1)); setPages(parseInt(e.selected + 1)) }}
+          onPageChange={(e)=>{ setPages(parseInt(e.selected + 1)) }}
           containerClassName="pagination"
         pageClassName="page-item"
         pageLinkClassName="page-link"
@@ -84,6 +82,9 @@ function FilmesPopular() {
         breakClassName='ellipsis'
           />
        </PaginationContainer>
+        </>
+       ): (<Search input={input} />)}
+       
     </>
   );
 }

@@ -1,7 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Filmes, Titulo } from "./styles/FPStyle";
+import { Filmes, PaginationContainer, Titulo } from "./styles/FPStyle";
 import FilmItem from "./FilmItem";
+import ReactPaginate from "react-paginate";
 
 function Search({input}) { 
     const [filmesFiltrados, setFilmesFiltrados]  = useState([])
@@ -31,14 +32,12 @@ function Search({input}) {
                 }
             })
             setFilmesFiltrados(allApi);
-            // console.log(response.data.total_pages);
             setTotalDePaginas( response.data.total_pages);
         }).catch(error => alert(`desculpe, houve um falha ${error}`))
     }
 
 
-    console.log(pages);
-    console.log(totalDePaginas);
+    
 
 
   return (
@@ -58,21 +57,27 @@ function Search({input}) {
         ))}
         
     </Filmes>
-    <button
-          onClick={() => setPages(pages >= 1 && pages < 42 ? pages + 1 : 42)}
-        >
-          <h1>{parseInt(pages)}</h1> Próximo
-        </button>
-        <button
-          onClick={() => setPages(pages >= 1 && pages < 42 ? pages + 1 : 42)}
-        >
-          <h1>{parseInt(pages + 1)}</h1> Próximo
-        </button>
-        <button
-          onClick={() => setPages(totalDePaginas)}
-        >
-          <h1>{totalDePaginas}</h1> ultima
-        </button>
+    <PaginationContainer>
+
+          <ReactPaginate
+          previousLabel="Anterior"
+          nextLabel="Último"
+          breakLabel="..."
+          pageCount={totalDePaginas}
+          marginPagesDisplayed={1}
+          pageRangeDisplayed={2}
+          onPageChange={(e)=>{ setPages(parseInt(e.selected + 1)) }}
+          containerClassName="pagination"
+        pageClassName="page-item"
+        pageLinkClassName="page-link"
+        previousClassName="page-item"
+        nextClassName="page-item"
+        previousLinkClassName="page-link"
+        nextLinkClassName="page-link"
+        activeClassName="active"
+        breakClassName='ellipsis'
+          />
+       </PaginationContainer>
     </>
   );
 }

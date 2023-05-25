@@ -27,6 +27,8 @@ function SearchGenreMovie({input, id}) {
                 }
             })
             setBuscarPorGenero(allApi);
+            console.log(response.data);
+
         }).catch(error => alert(`desculpe, houve um falha ${error}`))
     }
 
@@ -40,6 +42,9 @@ function SearchGenreMovie({input, id}) {
                 }
             });
             setGenerosFiltrados(results);
+            console.log(results.length);
+            console.log(results);
+            
         }
     }
 
